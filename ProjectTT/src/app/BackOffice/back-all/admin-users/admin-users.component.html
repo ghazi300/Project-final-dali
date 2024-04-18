@@ -1,0 +1,27 @@
+<h2>User List</h2>
+<div *ngIf="error; else userList">
+  <p>{{ error }}</p>
+</div>
+<ng-template #userList>
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Action</th> <!-- Add a new header for the action column -->
+
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users">
+        <td>{{ user.id }}</td>
+        <td>{{ user.name }}</td>
+        <td>{{ user.email }}</td>
+        <button (click)="deleteUser(user.id)">Delete</button>
+        <button (click)="banUser(user.id)">Ban</button> <!-- Add a "Ban" button -->
+
+      </tr>
+    </tbody>
+  </table>
+</ng-template>

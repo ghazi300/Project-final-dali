@@ -1,0 +1,9 @@
+<div>
+  <h1>Welcome, Admin!</h1>
+  <!-- Button to navigate to user list, shown only for users with ROLE_ADMIN -->
+  <button *ngIf="authService.isAdmin()" routerLink="/admin/users">View Users</button>
+  <!-- Button to navigate to profile -->
+  <button *ngIf="authService.isLoggedIn()" routerLink="/profile">Profile</button>
+  <!-- Your admin-specific content goes here -->
+  <router-outlet></router-outlet> <!-- Router outlet for child components -->
+</div>
